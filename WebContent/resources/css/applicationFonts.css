@@ -1,0 +1,31 @@
+@CHARSET "ISO-8859-1";
+
+@font-face
+{
+    font-family: Choktoff;
+    src: url("#{resource['fonts/Choktoff.ttf']}");
+}
+
+@font-face
+{
+    font-family: Corportate;
+    src: url("#{resource['fonts/corp.ttf']}");
+}
+
+@font-face
+{
+    font-family: FinalNew;
+    src: url("#{resource['fonts/Finalnew.ttf']}");
+}
+
+@font-face
+{
+    font-family: Moltor;
+    src: url("#{resource['fonts/Moltorv2.ttf']}");
+}
+
+@font-face
+{
+    font-family: Bubblegum;
+    src: url("#{resource['fonts/BubblegumSans-Regular.ttf']}");
+}

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+	
+	<h:body>		
+		<ui:composition template="/templates/template.xhtml">	
+			<ui:define name="tpage">
+				<div id="registerPage" class="registerPage">					
+					<h:form id="registerForm">
+						<!-- p:messages id="registrationMessages" showDetail="true" autoUpdate="true" closable="true" /-->
+						<p:tooltip id="tooltip" />
+						<p:growl id="growl" showDetail="true"/>
+						<p:panelGrid id="registerPanel" styleClass="registerPanel">
+							<f:facet name="header">
+								<p:row>
+									<p:column colspan="4">
+										<h:outputLabel id="registerHeader" styleClass="registerHeader" value="Register A Chemist"/>
+									</p:column>
+								</p:row>
+							</f:facet>
+							
+							<p:row styleClass="registerOtherRow">
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel for="shopName" value="Shop Name" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:inputText id="shopName" styleClass="registerI" value="#{registerChemist.shopName}" required="true" requiredMessage="Shop Name Cannot Be Blank"/>
+									<p:message for="shopName" display="tooltip" showDetail="true" style="font-size: 12px;" styleClass="errorMessages"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder"></p:column>
+								<p:column styleClass="registerCellNoBorder"></p:column>
+							</p:row>
+							
+							<p:row styleClass="registerOtherRow">
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="Shop Owner Name" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:inputText id="shopOwnerFName" styleClass="registerI" value="#{registerChemist.shopOwnerFName}" required="true" requiredMessage="First Name Cannot Be Blank">
+										<p:watermark for="shopOwnerFName" value="First Name"/>
+									</p:inputText>
+									<p:message for="shopOwnerFName" display="tooltip" showDetail="true" styleClass="errorMessages"/>
+								</p:column>
+								<!--p:column styleClass="registerCellNoBorder">
+									<p:inputText id="shopOwnerMName" styleClass="registerI" value="registerChemist.shopOwnerMName">
+										<p:watermark for="shopOwnerMName" value="Middle Name"/>
+									</p:inputText>
+								</p:column-->
+								<p:column styleClass="registerCellNoBorder">
+									<p:inputText id="shopOwnerLName" styleClass="registerI"  value="#{registerChemist.shopOwnerLName}" required="true" requiredMessage="Last Name Cannot Be Blank">
+										<p:watermark for="shopOwnerLName" value="Last Name"/>
+									</p:inputText>
+									<p:message for="shopOwnerLName" display="tooltip" showDetail="true" styleClass="errorMessages"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder"></p:column>
+							</p:row>
+							
+							<p:row styleClass="registerTitleRow">
+								<p:column colspan="4" styleClass="registerCellNoBorder">
+									<h:outputLabel value="Address" styleClass="registerL"/>
+								</p:column>
+							</p:row>
+							
+							<p:row styleClass="registerOtherRow">
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="Line 1" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:inputText id="registerAddressLine1" styleClass="registerI" value="#{registerChemist.shopAddr1}" required="true" requiredMessage="Address Line 1 Cannot Be Blank">
+										<p:watermark for="registerAddressLine1" value="Plot No., Building Name"/>
+									</p:inputText>
+									<p:message for="registerAddressLine1" display="tooltip" showDetail="true" styleClass="errorMessages"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="Line 2" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:inputText id="registerAddressLine2" styleClass="registerI" value="#{registerChemist.shopAddr2}" required="true" requiredMessage="Address Line 2 Cannot Be Blank">
+										<p:watermark for="registerAddressLine2" value="Street Name, Area Name"/>
+									</p:inputText>
+									<p:message for="registerAddressLine2" display="tooltip" showDetail="true" styleClass="errorMessages"/>
+								</p:column>
+							</p:row>
+							
+							<p:row styleClass="registerOtherRow">
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="City" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:inputText id="registerCity" styleClass="registerI" value="#{registerChemist.shopCity}" required="true" requiredMessage="City Cannot Be Blank">
+										<p:watermark for="registerCity" value="City"/>
+									</p:inputText>
+									<p:message for="registerCity" display="tooltip" showDetail="true" styleClass="errorMessages"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="State" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:inputText id="registerState" styleClass="registerI" value="#{registerChemist.shopState}" required="true" requiredMessage="State Cannot Be Blank">
+										<p:watermark for="registerState" value="State"/>
+									</p:inputText>
+									<p:message for="registerState" display="tooltip" showDetail="true" styleClass="errorMessages"/>
+								</p:column>
+							</p:row>
+							
+							<p:row styleClass="registerOtherRow">
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="PinCode" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:inputText id="registerPin" styleClass="registerI" value="#{registerChemist.shopPinCode}" required="true" requiredMessage="PinCode Cannot Be Blank">
+										<p:watermark for="registerPin" value="PinCode"/>
+									</p:inputText>
+									<p:message for="registerPin" display="tooltip" showDetail="true" styleClass="errorMessages"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="Country" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:selectOneMenu id="registerCountry" styleClass="registerI" effect="fold" panelStyleClass="registerSelectOneMenu" value="#{registerChemist.shopCountry}" style="width: 150px;">
+										<f:selectItem itemLabel="India" itemValue="India"></f:selectItem>
+										<f:selectItems value="#{dropDownLoaders.countries}"></f:selectItems>
+									</p:selectOneMenu>
+								</p:column>
+							</p:row>
+							
+							<p:row styleClass="registerTitleRow">
+								<p:column colspan="4" styleClass="registerCellNoBorder">
+									<h:outputLabel value="Contact Details" styleClass="registerL"/>
+								</p:column>
+							</p:row>
+							
+							<p:row styleClass="registerOtherRow">
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="E-Mail" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:inputText id="registerEmail" styleClass="registerI" value="#{registerChemist.shopEMail}" required="true" requiredMessage="E-Mail ID Cannot Be Blank">
+										<f:validator validatorId="emailValidator"/>
+										<p:watermark for="registerEmail" value="someone@example.com"/>
+									</p:inputText>
+									<p:message for="registerEmail" display="tooltip" showDetail="true" styleClass="errorMessages"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="Phone" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:inputText id="registerPhone" styleClass="registerI" value="#{registerChemist.shopPhone}" required="true" requiredMessage="Phone Number Cannot Be Blank">
+										<f:validator validatorId="phoneNumberValidator"/>
+										<p:watermark for="registerPhone" value="Enter 8-Digit Number"/>
+									</p:inputText>
+									<p:message for="registerPhone" display="tooltip" showDetail="true" styleClass="errorMessages"/>
+								</p:column>
+							</p:row>
+							
+							<p:row styleClass="registerOtherRow">
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="Mobile" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:inputText id="registerMobile" styleClass="registerI" value="#{registerChemist.shopMobile}" required="true" requiredMessage="Mobile Number Cannot Be Blank">								
+										<f:validator validatorId="mobileNumberValidator"/>
+										<p:watermark for="registerMobile" value="Enter 10-Digit Number"/>
+									</p:inputText>
+									<p:message for="registerMobile" display="tooltip" showDetail="true" styleClass="errorMessages"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder"></p:column>
+								<p:column styleClass="registerCellNoBorder"></p:column>
+							</p:row>
+							
+							<p:row styleClass="registerTitleRow">
+								<p:column colspan="4" styleClass="registerCellNoBorder">
+									<h:outputLabel value="Working Hours" styleClass="registerL"/>
+								</p:column>
+							</p:row>
+							
+							<p:row styleClass="registerOtherRow">
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="Opening Time" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:calendar id="registerOTime" pattern="HH:mm a" timeOnly="true" styleClass="registerCalender" alt="Opening Time" title="Opening Time" value="#{registerChemist.shopOpenTime}">
+										<p:watermark for="registerOTime" value="Opening Time"/>
+									</p:calendar>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="Closing Time" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:calendar id="registerCTime" pattern="HH:mm a" timeOnly="true" styleClass="registerCalender" alt="Closing Time" title="Closing Time" value="#{registerChemist.shopCloseTime}">
+										<p:watermark for="registerCTime" value="Closing Time"/>
+									</p:calendar>
+								</p:column>
+							</p:row>
+							
+							<p:row styleClass="registerOtherRow">
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="24HRS?" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:selectOneMenu id="register24HRS" styleClass="registerI" panelStyleClass="registerSelectOneMenu" effect="fold" value="#{registerChemist.shop24HRS}">
+										<f:selectItem itemLabel="No" itemValue="N"/>
+										<f:selectItem itemLabel="Yes" itemValue="Y"/>
+									</p:selectOneMenu>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="Closed On" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:selectCheckboxMenu id="registerClosedDays" effect="fold" styleClass="registerI" panelStyleClass="registerSelectCheckboxMenu" label="---Select---" value="#{registerChemist.shopClosedOn}">
+										<f:selectItem itemLabel="Sunday" itemValue="Sunday"/>
+										<f:selectItem itemLabel="Monday" itemValue="Monday"/>
+										<f:selectItem itemLabel="Tuesday" itemValue="Tuesday"/>
+										<f:selectItem itemLabel="Wednesday" itemValue="Wednesday"/>
+										<f:selectItem itemLabel="Thursday" itemValue="Thursday"/>
+										<f:selectItem itemLabel="Friday" itemValue="Friday"/>
+										<f:selectItem itemLabel="Saturday" itemValue="Saturday"/>
+									</p:selectCheckboxMenu>
+								</p:column>
+							</p:row>
+							
+							<p:row styleClass="registerTitleRow">
+								<p:column colspan="4" styleClass="registerCellNoBorder">
+									<h:outputLabel value="Product Details" styleClass="registerL"/>
+								</p:column>
+							</p:row>
+							
+							<p:row styleClass="registerOtherRow">
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="Medicine Type" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:selectCheckboxMenu id="registerMedicineType" effect="fold" styleClass="registerI" panelStyleClass="registerSelectCheckboxMenu" label="---Select---" value="#{registerChemist.shopMedicineType}" required="true" requiredMessage="Mebicine Type Cannot Be Blank">
+										<f:selectItem itemLabel="Allopathic" itemValue="Allopathic"/>
+										<f:selectItem itemLabel="Ayurvedic" itemValue="Ayurvedic"/>
+									</p:selectCheckboxMenu>
+									<p:message for="registerMedicineType" display="tooltip" showDetail="true" styleClass="errorMessages"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="Speciality" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:selectOneMenu id="registerSpecialization" styleClass="registerI" effect="fold" editable="true" panelStyleClass="registerSelectOneMenu" value="#{registerChemist.shopSpeciality}">
+										<f:selectItem itemLabel="---Select---" itemValue=""/>
+										<f:selectItems value="#{dropDownLoaders.specialities}"/>
+									</p:selectOneMenu>
+								</p:column>
+							</p:row>
+							
+							<p:row styleClass="registerTitleRow">
+								<p:column colspan="4" styleClass="registerCellNoBorder">
+									<h:outputLabel value="Payment Details" styleClass="registerL"/>
+								</p:column>
+							</p:row>
+							
+							<p:row styleClass="registerOtherRow">
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="Payment Mode" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:selectCheckboxMenu id="registePaymentMode" styleClass="registerI" effect="fold" panelStyleClass="registerSelectCheckboxMenu" label="---Select---" value="#{registerChemist.shopPaymentMode}"  required="true" requiredMessage="Payment Mode Cannot Be Blank">
+										<f:selectItem itemLabel="Cash" itemValue="Cash"/>
+										<f:selectItem itemLabel="Debit Card" itemValue="Debit Card"/>
+										<f:selectItem itemLabel="Credit Card" itemValue="Credit Card"/>							
+									</p:selectCheckboxMenu>
+									<p:message for="registePaymentMode" display="tooltip" showDetail="true" styleClass="errorMessages"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<h:outputLabel value="Home Delivery" styleClass="registerL"/>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:selectOneMenu id="registerHomeDelivery" styleClass="registerI" panelStyleClass="registerSelectOneMenu" effect="fold" value="#{registerChemist.shopHomeDelivery}">
+										<f:selectItem itemLabel="No" itemValue="N"/>
+										<f:selectItem itemLabel="Yes" itemValue="Y"/>
+									</p:selectOneMenu>
+								</p:column>
+							</p:row>
+							
+							<p:row styleClass="registerOtherRow">
+								<p:column styleClass="registerCellNoBorder"></p:column>
+								<p:column styleClass="registerCellNoBorder"></p:column>
+								<p:column styleClass="registerCellNoBorder"></p:column>
+								<p:column styleClass="registerCellNoBorder"></p:column>
+							</p:row>
+							
+							<p:row styleClass="registerOtherRow">
+								<p:column styleClass="registerCellNoBorder"></p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:commandButton value="Register" styleClass="mediButtons" action="#{registerChemist.registerMyChemist}" update="registerPanel"></p:commandButton>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder">
+									<p:commandButton value="Reset" type="reset" update="registerForm" styleClass="mediButtons"></p:commandButton>
+								</p:column>
+								<p:column styleClass="registerCellNoBorder"></p:column>
+							</p:row>						
+						</p:panelGrid>
+					</h:form>
+				</div>
+			</ui:define>
+		</ui:composition>
+	</h:body>
+	
+</html>

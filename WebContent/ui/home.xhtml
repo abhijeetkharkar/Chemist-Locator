@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+	
+	<h:body>		
+		<ui:composition template="/templates/template.xhtml">	
+			<ui:define name="tpage">
+				<div id="homePage">
+					<h:form id="homeForm" class="homeForm">
+						<p:growl id="homeMsgs" showDetail="true" />
+						<h:panelGrid columns="5" cellpadding="0" cellspacing="0" columnClasses="homeLabelCol,homeSearchCol,homeLabelCol,homeSearchCol,homeSearchButton">
+							<p:outputLabel id="locationSearchL" styleClass="homeSearchL" for="locationSearch" value=""><h:graphicImage name="images/location_icon.jpg" height="40" width="40"></h:graphicImage></p:outputLabel>
+							<p:autoComplete id="locationSearch" styleClass="homeSearch" inputStyleClass="homeSearchIP" panelStyleClass="homeSearchPanel" size="20"  maxResults="6" value="#{searchChemist.location}" completeMethod="#{searchChemist.autocompleteLocation}"/>
+							<p:outputLabel id="mediSearchL" styleClass="homeSearchL" for="mediSearch" value=""><h:graphicImage name="images/search_icon.png" height="40" width="40"></h:graphicImage></p:outputLabel>
+							<p:autoComplete id="mediSearch" styleClass="homeSearch" inputStyleClass="homeSearchIP" panelStyleClass="homeSearchPanel" size="40" maxResults="6" value="#{searchChemist.shopName}" completeMethod="#{searchChemist.autocompleteShopName}"/>						
+							<p:commandButton id="searchButtonHome" styleClass="searchButtonHome" action="#{searchChemist.searchChemistShop}" value="Search"/>
+							<p:watermark for="locationSearch" value="Select a Location"/>
+							<p:watermark for="mediSearch" value="Select a Chemist"/>
+						</h:panelGrid>
+					</h:form>
+				</div>
+			</ui:define>
+		</ui:composition>
+	</h:body>
+	
+</html>

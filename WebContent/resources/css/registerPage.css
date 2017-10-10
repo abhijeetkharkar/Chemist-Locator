@@ -1,0 +1,100 @@
+@CHARSET "ISO-8859-1";
+
+#registerPage
+{
+	width: 70%;
+	height: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+}
+
+.registerHeader
+{
+	font-family: Arial,sans-serif;
+	font-size: 1.1em;
+	color: #333;
+	font-weight: bold;
+	text-shadow: 0px 1px 0px rgba(255,255,255,0.7);
+}
+
+.registerL
+{
+	font-family: Arial,sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #4f4f4f;
+}
+
+#registerPage input,select
+{
+	font-family: Arial,sans-serif;
+	font-size: 14px;
+	color: #4f4f4f;
+}
+
+.ui-panelgrid .ui-panelgrid-cell.registerCellNoBorder
+{
+	border: none;
+}
+
+.ui-panelgrid .ui-panelgrid-cell.registerCellNoBorderDropDown
+{
+	border: none;
+	width: 100px;
+}
+
+.ui-panelgrid
+{
+	border: 1px solid #a8a8a8;	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.registerTitleRow
+{
+	background: #08b99a -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.8)), to(rgba(255,255,255,0)));
+	border-top: 1px solid #a8a8a8;
+	border-bottom: 1px solid #a8a8a8;
+	border-right: none;
+	border-left: none;
+}
+
+.registerSelectCheckboxMenu label
+{
+	font-family: Arial,sans-serif;
+	font-size: 14px;
+	color: #4f4f4f;
+}
+
+.registerSelectOneMenu li
+{
+	font-family: Arial,sans-serif;
+	font-size: 14px;
+	color: #4f4f4f;
+}
+
+.registerSelectOneMenu .ui-state-highlight
+{
+	background: #08b99a -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.25)), to(rgba(0,0,0,0)))
+}
+
+.registerI label
+{
+	font-family: Arial,sans-serif;
+	font-size: 14px;
+	color: #4f4f4f;
+}
+
+.ui-datepicker
+{
+	font-family: Arial,sans-serif;
+	font-size: 14px;
+	color: #4f4f4f;
+}
+
+.ui-button.mediButtons
+{
+	background-color: #08b99a;
+}

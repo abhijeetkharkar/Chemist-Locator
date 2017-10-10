@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+	
+	<h:body>		
+		<ui:composition template="/templates/template.xhtml">	
+			<ui:define name="tpage">
+				<div id="resultPage" class="resultPage">
+					<div id="resultFilter">
+						<h:panelGrid id="filterPanel" styleClass="filterPanel" columns="1" columnClasses="filterRows" rowClasses="filter-row-even, filter-row-odd" headerClass="filter-header">
+							<f:facet name="header">
+								<h:outputText id="filterOptionsHeader" styleClass="filterOptionsHeader" value="Filter Options"/>
+							</f:facet>
+							<h:outputLabel for="sortBy" value="Sort By" styleClass="filterOptionsL"/>
+							<h:selectOneMenu id="sortBy" styleClass="filterOptions">
+								<f:selectItem itemLabel="Rating" itemValue="rating"></f:selectItem>
+								<f:selectItem itemLabel="Rating" itemValue="rating"></f:selectItem>
+							</h:selectOneMenu>
+							<h:outputLabel for="locationFilter" value="Location" styleClass="filterOptionsL"/>
+							<h:selectOneMenu id="locationFilter" styleClass="filterOptions"/>
+							<h:outputLabel for="typeFilter" value="Type Of Medicines" styleClass="filterOptionsL"/>
+							<h:selectOneMenu id="typeFilter" styleClass="filterOptions"/>
+							<h:outputLabel for="paymentModeFilter" value="Payment Mode" styleClass="filterOptionsL"/>
+							<h:selectOneMenu id="paymentModeFilter" styleClass="filterOptions"/>
+							<h:outputLabel for="workingHoursFilter" value="Working Hours" styleClass="filterOptionsL"/>
+							<h:selectOneMenu id="workingHoursFilter" styleClass="filterOptions"/>
+							<h:outputLabel for="homeDeliveryFilter" value="Home Delivery" styleClass="filterOptionsL"/>
+							<h:selectOneMenu id="homeDeliveryFilter" styleClass="filterOptionsLast"/>
+						</h:panelGrid>
+					</div>
+					<div id="advertisements"></div>
+					<div id="finalResults">
+						<h:form id="searchChemistForm" class="searchChemistForm">
+							<p:growl id="searchChemistsMsgs" showDetail="true" />
+							<p:dataScroller value="#{searchChemist.shopList}" var="shopDetails" chunkSize="10" scrollHeight="500">
+								
+								<f:facet name="header">
+									<h:outputText id="search_Header" styleClass="search_Header" value="Search Results - #{fn:length(searchChemist.shopList)} in total"/>
+								</f:facet>
+								
+								<f:facet name="loader">
+									<p:commandButton type="button" value="Show More Results" icon="ui-icon-circle-triangle-s"/>
+								</f:facet>
+								
+								<h:panelGrid styleClass="search_shopDetail_table" columns="2" style="width:100%" columnClasses="search_shopImage,search_shopDetail">
+									<h:graphicImage name="images/loading.gif" alt="#{shopDetails.shop_name}"/>
+									<p:panelGrid style="border:none;width: 100%;margin-left: 0px;margin-right:0px;margin-top:0px;margin-bottom:0px;">
+										<p:row>
+											<p:column styleClass="resultCellNoBorder">
+												<p:link styleClass="resultLink" outcome="displayChemist" >
+													<h:outputText id="search_shopName" styleClass="search_shopName" value="#{shopDetails.shop_name}"/>
+													<f:param name="id" value="#{shopDetails.shop_id}" />
+												</p:link>												
+											</p:column>
+											<p:column styleClass="resultCellNoBorder">
+												<div class="ratingDiv" style="background-color: #{shopDetails.shop_rating_color}">
+													<h:outputText class="ratingText" value="#{shopDetails.shop_rating}"/>
+												</div>
+											</p:column>
+										</p:row>
+										
+										<p:row>
+											<p:column styleClass="resultCellNoBorder" colspan="2">
+												<p:panelGrid id="search_shopContactEmail" style="border:none;width: 100%;margin-left: 0px;margin-right:0px;margin-top:0px;margin-bottom:0px;" styleClass="search_shopContactEmail">
+												
+													<p:row>
+														<p:column styleClass="resultCellNoBorder">
+															<h:graphicImage name="images/time.png" styleClass="search_icons"/>
+														</p:column>
+														<p:column styleClass="resultCellNoBorder">
+															<h:outputText id="search_shopTimings" styleClass="search_shopTimings" value="Working Hours : #{shopDetails.shop_open_timings}"/>
+														</p:column>
+													</p:row>
+													
+													<p:row>
+														<p:column styleClass="resultCellNoBorder">
+															<h:graphicImage name="images/address.png" styleClass="search_icons"/>
+														</p:column>
+														<p:column styleClass="resultCellNoBorder">
+															<h:outputText id="search_shopAddress" styleClass="search_shopAddress" value="#{shopDetails.shop_address}"/>
+														</p:column>
+													</p:row>
+													
+													<p:row>
+														<p:column styleClass="resultCellNoBorder">
+															<h:graphicImage name="images/phone.png" styleClass="search_icons"/>
+														</p:column>
+														<p:column styleClass="resultCellNoBorder">
+															<h:outputText id="search_shopContact" styleClass="search_shopContact" value="#{shopDetails.shop_contact_number}"/>
+														</p:column>
+													</p:row>
+													
+													<p:row>
+														<p:column styleClass="resultCellNoBorder">
+															<h:graphicImage name="images/email.png" styleClass="search_icons"/>
+														</p:column>
+														<p:column styleClass="resultCellNoBorder">
+															<h:outputText id="search_shopEmail" styleClass="search_shopEmail" value="#{shopDetails.shop_email}"/>
+														</p:column>
+													</p:row>
+													
+												</p:panelGrid>
+											</p:column>
+										</p:row>										
+									</p:panelGrid>
+								</h:panelGrid>
+							</p:dataScroller>
+						</h:form>
+					</div>
+				</div>
+				<div style="clear: both;">&nbsp;</div>
+			</ui:define>
+		</ui:composition>
+	</h:body>
+	
+</html>
